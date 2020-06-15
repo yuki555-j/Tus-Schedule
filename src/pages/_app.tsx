@@ -3,7 +3,7 @@ import App, { AppContext } from "next/app";
 import Head from "next/head";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "assets/theme";
-import "assets/sass/style.scss";
+import "assets/style.scss";
 import Layout from "layout/app";
 
 export default class extends App {

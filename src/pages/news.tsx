@@ -3,6 +3,8 @@ import styled from "styled-components";
 import NewsCard from "components/NewsCard";
 import { News } from "types/types";
 
+import { useWorks } from "hooks/useWorksReducer";
+
 const img =
   "https://firebasestorage.googleapis.com/v0/b/math-gathering-1705c.appspot.com/o/tus.png?alt=media&token=7d081ab5-0345-46a9-82f2-3bac1b1c5463";
 
@@ -74,6 +76,8 @@ const data: News[] = [
 ];
 
 const NewsPage: NextPage = () => {
+  const [state] = useWorks();
+
   return (
     <>
       <Wrapper>

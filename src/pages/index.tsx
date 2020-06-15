@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from "next"
 import styled from "styled-components"
 import NewsCard from "components/NewsCard"
 import { News } from "types/types"
 import LockIcon from '@material-ui/icons/Lock';
+import { useWorks } from "hooks/useWorksReducer";
 
 const LoginPage: NextPage = () => {
+  const [state, handleGetWorks] = useWorks();
+  const [info, setInfo] = useState({username: "", password: ""});
+
+  const handleChange = (e) => {
+    const name = e.target.name
+    setInfo({...info, [name]: e.target.value});
+  }
+
+  const handleClick = () => {
+    handleGetWorks(info) 
+  }
+
   return (
     <Wrapper>
       <Title>Tus-Schedule</Title>
-      <Input type="text" placeholder="ユーザ名" />
-      <Input type="password" placeholder="パスワード" />
-      <Button><LockIcon />ログイン</Button>
+      <Input onChange={handleChange} type="text" name="username" placeholder="ユーザ名" />
+      <Input onChange={handleChange} type="password" name="password" placeholder="パスワード" />
+      <Button onClick={handleClick}><LockIcon />ログイン</Button>
     </Wrapper>
   );
 };
