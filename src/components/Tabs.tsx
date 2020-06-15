@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -14,12 +14,10 @@ const Routes = ["/works", "/timetable", "/news"]
 export default function IconLabelTabs() {
   const [value, setValue] = React.useState(0);
 
-  useEffect(() => {
-    Router.push(Routes[value])
-  }, [value])
-
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
+    console.log("hoge")
+    Router.push(Routes[newValue])
   };
 
   return (

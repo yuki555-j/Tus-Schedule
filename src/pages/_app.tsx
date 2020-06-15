@@ -21,7 +21,7 @@ export default class extends App {
       <>
         <MuiThemeProvider theme={theme}>
           <Head>
-            <title>hugo</title>
+            <title>Tus-Schedule</title>
             <meta charSet="utf-8" />
           </Head>
           <Layout>
