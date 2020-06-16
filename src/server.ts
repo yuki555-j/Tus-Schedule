@@ -22,8 +22,11 @@ app.prepare().then(() => {
     })
   );
 
+  server.get("/super_test", (req, res) => {
+    return res.status(200).send();
+  });
+
   server.all("*", (req, res) => {
-    console.log("sercer")
     return handle(req, res);
   });
 
