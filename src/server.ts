@@ -12,19 +12,6 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  console.log("sercer")
-
-  server.use(
-    "/api",
-    createProxyMiddleware({
-      target: "https://tus-schedule-api.herokuapp.com",
-      changeOrigin: true,
-    })
-  );
-
-  server.get("/super_test", (req, res) => {
-    return res.status(200).send();
-  });
 
   server.all("*", (req, res) => {
     return handle(req, res);
