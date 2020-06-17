@@ -8,6 +8,7 @@ type Props = {
 }
 
 const CardComponent: React.FC<Props> = ({ data }) => {
+  console.log(process.env.API_URL)
   return (
     <Card>
       <CardContent>

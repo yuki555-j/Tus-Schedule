@@ -1,10 +1,11 @@
 import axios from "axios";
 import { User } from "types/types";
 
-export const fetch1 = async (type = "", user: User) => {
+export const fetch = async (type = "", user: User) => {
   const params = new FormData();
   params.append("username", user["username"]);
   params.append("password", user["password"]);
+  //Todo: 環境変数に置き換える
   const response = await fetch(
     "https://tus-schedule-api.herokuapp.com/api/works",
     {
@@ -16,10 +17,6 @@ export const fetch1 = async (type = "", user: User) => {
       mode: "cors",
     }
   );
-
-  console.log(response)
   const json = await response.json();
-
-  console.log(json);
-
+  return json();
 }; 

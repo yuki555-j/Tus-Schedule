@@ -10,6 +10,10 @@ const LoginPage: NextPage = () => {
   const [state, handleGetWorks] = useWorks();
   const [info, setInfo] = useState({username: "", password: ""});
 
+  console.log("process.env.API_URL")
+  console.log(process.env.API_URL)
+  console.log(process.env.FOO);
+
   const handleChange = (e) => {
     const name = e.target.name
     setInfo({...info, [name]: e.target.value});

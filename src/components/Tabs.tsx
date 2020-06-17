@@ -16,7 +16,6 @@ export default function IconLabelTabs() {
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
-    console.log("hoge")
     Router.push(Routes[newValue])
   };
 

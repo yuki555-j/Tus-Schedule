@@ -1,4 +1,3 @@
-require("dotenv").config();
 const withSass = require("@zeit/next-sass");
 
 module.exports = withSass({
@@ -10,6 +9,6 @@ module.exports = withSass({
 module.exports = {
   distDir: "../.next",
   env: {
-    API_URL: process.env.API_URL,
+    API_URL: "https://tus-schedule-api.herokuapp.com",
   },
 };
