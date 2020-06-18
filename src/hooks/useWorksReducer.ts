@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 import { Works } from "types/types";
-import { fetchWrapper } from "service/wrapperFetch";
+import { Fetch } from "service/wrapperFetch";
 
 const InitialState: Works[] = []
 
@@ -26,7 +26,7 @@ export const useWorks = () => {
   const [state, dispatch] = useReducer(reducer, InitialState)
 
   const handleGetWorks = (res) => {
-    fetchWrapper("works", res);
+    //Fetch("works", res);
     dispatch(get(res))
   }
   return [state, handleGetWorks];

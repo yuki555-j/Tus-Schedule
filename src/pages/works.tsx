@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
 import { Works } from "types/types";
 import Card from "components/Card";
+import { withAuth } from "service/withAuth";
 
 const data: Works[] = [
   {
@@ -87,4 +88,4 @@ const Wrapper = styled.div`
   margin-bottom: 100px;
 `
 
-export default WorksPage;
+export default withAuth(WorksPage);

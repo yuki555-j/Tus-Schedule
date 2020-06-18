@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { User } from "types/types";
 import { Fetch } from "service/wrapperFetch";
+import Router from "next/router";
+
 export const useLogin = () => {
   const [user, setInfo] = useState({username: "", password: ""});
   const [error, setError] = useState("");
@@ -14,7 +16,9 @@ export const useLogin = () => {
     if (status === 500) {
       setError(message)
     } else {
+      console.log(cookie)
       localStorage.setItem("cookie", cookie)
+      Router.push("/works");
     }
   }
 

@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import styled from "styled-components";
+import { withAuth } from "service/withAuth";
 
 
 const News: NextPage = () => {
@@ -23,4 +24,4 @@ const Message = styled.p`
   font-weight: bold;
 `;
 
-export default News;
+export default withAuth(News);

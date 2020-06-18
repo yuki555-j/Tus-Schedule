@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import styled from "styled-components";
 import NewsCard from "components/NewsCard";
 import { News } from "types/types";
+import { withAuth } from "service/withAuth";
 
 import { useWorks } from "hooks/useWorksReducer";
 
@@ -110,4 +111,4 @@ const Wrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-export default NewsPage;
+export default withAuth(NewsPage);

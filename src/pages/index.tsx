@@ -5,6 +5,7 @@ import NewsCard from "components/NewsCard"
 import { News } from "types/types"
 import LockIcon from '@material-ui/icons/Lock';
 import { useLogin } from "hooks/useLogin";
+import { withAuth } from "service/withAuth";
 
 
 const LoginPage: NextPage = () => {
@@ -87,4 +88,4 @@ const Button = styled.button`
   margin: 15px;
 `
 
-export default LoginPage;
+export default withAuth(LoginPage);

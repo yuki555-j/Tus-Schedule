@@ -5,24 +5,18 @@ import Router from "next/router";
 import { isLogin } from "service/isLogin";
 
 export const withAuth = (Component: NextPage) => {
-   const [login, setLogin] = useState(isLogin());
+  return () => {
+    const [login, setLogin] = useState(isLogin());
     useEffect(() => {
-      const loggedin = isLogin();
+      const login = isLogin();
       setLogin(login);
-      if (!loggedin) {
-        Router.push("/login");
-      }
+      if (!login) {
+        Router.push("/");
+      } 
     }, [login]);
 
     return (
-      <div>
-        {login ? (
-          <Layout>
-            <Component />
-          </Layout>
-        ) : (
-          "loading..."
-        )}
-      </div>
+      <Component />
     );
+  }
 };
