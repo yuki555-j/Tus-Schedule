@@ -4,31 +4,32 @@ import styled from "styled-components"
 import NewsCard from "components/NewsCard"
 import { News } from "types/types"
 import LockIcon from '@material-ui/icons/Lock';
-import { useWorks } from "hooks/useWorksReducer";
+import { useLogin } from "hooks/useLogin";
+
 
 const LoginPage: NextPage = () => {
-  const [state, handleGetWorks] = useWorks();
-  const [info, setInfo] = useState({username: "", password: ""});
-
-  console.log("process.env.API_URL")
-  console.log(process.env.API_URL)
-  console.log(process.env.FOO);
-
-  const handleChange = (e) => {
-    const name = e.target.name
-    setInfo({...info, [name]: e.target.value});
-  }
-
-  const handleClick = () => {
-    handleGetWorks(info) 
-  }
+  const { handleSubmit, handleChange, error } = useLogin();
 
   return (
     <Wrapper>
       <Title>Tus-Schedule</Title>
-      <Input onChange={handleChange} type="text" name="username" placeholder="ユーザ名" />
-      <Input onChange={handleChange} type="password" name="password" placeholder="パスワード" />
-      <Button onClick={handleClick}><LockIcon />ログイン</Button>
+      <Input
+        onChange={handleChange}
+        type="text"
+        name="username"
+        placeholder="ユーザ名"
+      />
+      <Input
+        onChange={handleChange}
+        type="password"
+        name="password"
+        placeholder="パスワード"
+      />
+      <Error>{error}</Error>
+      <Button onClick={handleSubmit}>
+        <LockIcon />
+        ログイン
+      </Button>
     </Wrapper>
   );
 };
@@ -48,6 +49,13 @@ const Title = styled.h1`
   text-align: center;
   font-size: 2.4rem;
 `
+const Error = styled.p`
+  font-weight: bold;
+  color: #dc3939;
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 10px 0px;
+`
 const Input = styled.input`
   color: block;
   font-weight: bold;
@@ -64,8 +72,7 @@ const Input = styled.input`
     box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px white;
   }
   margin: 15px;
-`;
-
+`
 const Button = styled.button`
   display: flex;
   color: #347a39;
