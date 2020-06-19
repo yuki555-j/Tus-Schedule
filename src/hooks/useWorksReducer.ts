@@ -16,7 +16,7 @@ const get = (res: Works) => ({
 const reducer = (state, action) => {
   switch (action.type) {
     case WorksActionType.GET:
-      return state;
+      return [...state, ...action.res];
     default:
       return state;
   }
@@ -24,10 +24,16 @@ const reducer = (state, action) => {
 
 export const useWorks = () => {
   const [state, dispatch] = useReducer(reducer, InitialState)
+  useEffect(() => {
+    console.log("useEffect")
+    handleGetWorks()
+  }, [])
 
-  const handleGetWorks = (res) => {
-    //Fetch("works", res);
-    dispatch(get(res))
+  const handleGetWorks = async () => {
+    const { subjects }= await Fetch("/works", "GET");
+    console.log("subjects")
+    console.log(subjects)
+    dispatch(get(subjects))
   }
   return [state, handleGetWorks];
 }

@@ -1,6 +1,6 @@
 export type Works = {
   name: string;
-  date: string;
+  limit: string;
   url: string;
 };
 

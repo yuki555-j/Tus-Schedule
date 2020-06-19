@@ -8,7 +8,6 @@ type Props = {
 }
 
 const CardComponent: React.FC<Props> = ({ data }) => {
-  console.log(process.env.API_URL)
   return (
     <Card>
       <CardContent>
@@ -16,7 +15,7 @@ const CardComponent: React.FC<Props> = ({ data }) => {
       </CardContent>
       <CardFooter>
         <AccessAlarmsIcon style={{ margin: "0px 5px" }} />
-        {data.date}
+        {data.limit}
       </CardFooter>
     </Card>
   )
