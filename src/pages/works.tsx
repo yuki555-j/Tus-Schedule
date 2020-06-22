@@ -5,19 +5,22 @@ import { Works } from "types/types";
 import Card from "components/Card";
 import { withAuth } from "service/withAuth";
 import { useWorks } from "hooks/useWorksReducer";
-import fetch from "isomorphic-unfetch";
 import Loading from "../components/Loading";
+import { TimeTag } from "components/TimeTag";
 
 const WorksPage = () => {
   const [state, handleGetWorks] = useWorks();
   return (
     <>
       {state.length > 0 ? (
-        <Wrapper>
-          {state.map((value, index) => {
-            return <Card key={index} data={value} />;
-          })}
-        </Wrapper>
+        <>
+          <TimeTag />
+          <Wrapper>
+            {state.map((value, index) => {
+              return <Card key={index} data={value} />;
+            })}
+          </Wrapper>
+        </>
       ) : (
         <Loading />
       )}
@@ -26,7 +29,7 @@ const WorksPage = () => {
 };
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 0px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   flex-wrap: wrap;
