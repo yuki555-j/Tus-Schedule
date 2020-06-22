@@ -4,6 +4,7 @@ import Head from "next/head";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "assets/theme";
 import "assets/style.scss";
+import "assets/loading.scss";
 import Layout from "layout/app";
 
 export default class extends App {

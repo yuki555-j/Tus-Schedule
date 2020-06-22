@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { News } from "types/types";
 
 type Props = {
-  data: News
-}
+  data: News;
+};
 
 const img =
   "https://firebasestorage.googleapis.com/v0/b/math-gathering-1705c.appspot.com/o/tus.png?alt=media&token=7d081ab5-0345-46a9-82f2-3bac1b1c5463";
 
 const Cat_Title = (modStr: string) => {
-  modStr = modStr.substr(0, 25) + "..."
-  return modStr
+  modStr = modStr.substr(0, 25) + "...";
+  return modStr;
 };
 
 const CardNewsComponent: React.FC<Props> = ({ data }) => (
@@ -25,9 +25,7 @@ const CardNewsComponent: React.FC<Props> = ({ data }) => (
     </NewsCardContent1>
     <NewsCardContent2 src={img} />
   </NewsCard>
-)
-
-
+);
 
 const NewsCard = styled.div`
   display: flex;
@@ -36,8 +34,7 @@ const NewsCard = styled.div`
   align-items: center;
   font-weight: bold;
   padding: 20px 10px;
-`
-  ;
+`;
 const NewsCardContent1 = styled.div`
   display: flex;
   flex-direction: column;

@@ -5,7 +5,7 @@ import Router from "next/router";
 import { isLogin } from "service/isLogin";
 
 export const withAuth = (Component: NextPage) => {
-  return () => {
+  return (props) => {
     const [login, setLogin] = useState(isLogin());
     useEffect(() => {
       const login = isLogin();
@@ -16,7 +16,7 @@ export const withAuth = (Component: NextPage) => {
     }, [login]);
 
     return (
-      <Component />
+      <Component {...props} />
     );
   }
 };

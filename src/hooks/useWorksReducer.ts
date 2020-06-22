@@ -2,16 +2,16 @@ import { useReducer, useEffect } from "react";
 import { Works } from "types/types";
 import { Fetch } from "service/wrapperFetch";
 
-const InitialState: Works[] = []
+const InitialState: Works[] = [];
 
 enum WorksActionType {
-  GET = "GET_WORKS"
+  GET = "GET_WORKS",
 }
 
 const get = (res: Works) => ({
   type: WorksActionType.GET,
-  res
-})
+  res,
+});
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -20,20 +20,17 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
 export const useWorks = () => {
-  const [state, dispatch] = useReducer(reducer, InitialState)
+  const [state, dispatch] = useReducer(reducer, InitialState);
   useEffect(() => {
-    console.log("useEffect")
-    handleGetWorks()
-  }, [])
+    handleGetWorks();
+  }, []);
 
   const handleGetWorks = async () => {
-    const { subjects }= await Fetch("/works", "GET");
-    console.log("subjects")
-    console.log(subjects)
-    dispatch(get(subjects))
-  }
+    const { subjects } = await Fetch("/works", "GET");
+    dispatch(get(subjects));
+  };
   return [state, handleGetWorks];
-}
+};
