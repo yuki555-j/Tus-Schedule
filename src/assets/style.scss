@@ -137,6 +137,10 @@ textarea {
   resize: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*-----------------------
       Flex Types
 ------------------------*/
@@ -151,11 +155,19 @@ textarea {
   align-items: center;
 }
 
-.fl-spa { justify-content: space-around; }
-.fl-spb { justify-content: space-between; }
-.fl-ce { justify-content: center; }
+.fl-spa {
+  justify-content: space-around;
+}
+.fl-spb {
+  justify-content: space-between;
+}
+.fl-ce {
+  justify-content: center;
+}
 
-.fl-col { flex-direction: column; }
+.fl-col {
+  flex-direction: column;
+}
 
 /*-----------------------
       Basic style
@@ -163,7 +175,7 @@ textarea {
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  background-color:#E0E5EC;
+  background-color: #e0e5ec;
 }
 
 body {

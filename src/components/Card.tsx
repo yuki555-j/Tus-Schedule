@@ -11,10 +11,10 @@ const CardComponent: React.FC<Props> = ({ data }) => {
   const today = data.limit.indexOf("本日") === -1;
   const tomorrow = data.limit.indexOf("明日") === -1;
 
-  console.log(tomorrow);
+  console.log(data);
 
   return (
-    <Card today={!today ? 1 : 0} tomorrow={!tomorrow ? 1 : 0}>
+    <Card today={!today ? 1 : 0} tomorrow={!tomorrow ? 1 : 0} href={data.url}>
       <CardContent>{data.name}</CardContent>
       <CardFooter>
         <AccessAlarmsIcon style={{ margin: "0px 5px" }} />
@@ -24,8 +24,9 @@ const CardComponent: React.FC<Props> = ({ data }) => {
   );
 };
 
-const Card: any = styled.div`
+const Card: any = styled.a`
   display: flex;
+  color: black;
   align-items: center;
   padding: 18px 20px;
   border-radius: 5px;
